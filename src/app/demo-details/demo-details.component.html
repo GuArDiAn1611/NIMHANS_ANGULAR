@@ -1,0 +1,215 @@
+<div class="col-sm-12" style="padding-top: 20px;">
+  <div class="row">
+      <form class="form-horizontal"  #f="ngForm">
+          <div class="form-group">
+            <label class="control-label col-sm-2 col-md-2" for="email">UH-ID:</label>
+            <div class="col-md-6 col-sm-6">
+              <input class="form-control set" name="uhid" [disabled]="isView" [(ngModel)]="user.demo.ehrId" #ehrid>
+            </div>
+            <div class="col-sm-2">
+                <button 
+                class="btn btn-primary"
+                type="button" [disabled]="isView" (click)="onEnter(ehrid)">Enter</button>
+            </div>
+            <div class="col-sm-2">
+              <button mat-raised-button [disabled]="isView" (click)="openBottomSheet()">Open Encounters</button>
+            </div>
+          </div>
+        <hr>
+          <div class="form-group">
+              <label class="control-label col-md-2 col-sm-2" for="email">Name:</label>
+              <div class="col-md-3 col-sm-3">
+                <input class="form-control set" [disabled]="isView" name="name" [(ngModel)]="user.demo.pname">
+              </div>
+              <label class="control-label col-md-2 col-sm-2" for="email">Age:</label>
+              <div class="col-md-2 col-sm-2">
+                <input class="form-control" [disabled]="isView" name="age" [(ngModel)]="user.demo.age">
+              </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Contact:</label>
+            <div class="col-sm-3">
+              <input class="form-control" [disabled]="isView" name="contact" [(ngModel)]="user.demo.pcontact">
+            </div>
+              <label class="control-label col-md-2 col-sm-2" for="email">Gender:</label>
+              <div class="col-sm-2">
+                  <!-- <div class="form-group"> -->
+                      <!-- <div class="col-md-2 col-sm-2"></div> -->
+                      <mat-button-toggle-group name="gender"
+                      aria-label="Font Style" [value]=value
+                      [disabled]="isView"
+                      (change)="onGenderChange($event)"
+                      [(ngModel)]="user.demo.gender" class="set"
+                      >
+                      
+                          <mat-button-toggle name="gender" [value]="item" 
+                           *ngFor="let item of genders"
+                          >{{item}}</mat-button-toggle>
+                                    
+                        </mat-button-toggle-group>
+              <!-- </div> -->
+              </div>
+          </div>
+          <!-- <div class="form-group">
+            <label class="control-label col-md-2 col-sm-2" for="email">Date and time of Examination:</label>
+            <div class="col-md-6 col-sm-6">
+              <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="dte" class="get" ngModel>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+         </div> -->
+         <hr>
+         <div class="form-group">
+          <label class="control-label col-md-2 col-sm-2" for="email"> Informant's Name:</label>
+          <div class="col-md-3 col-sm-3">
+            <input class="form-control" [disabled]="isView" name="iname" [(ngModel)]="user.iname">
+          </div>
+          <label class="control-label col-md-2 col-sm-2" for="email">Date of Injury:</label>
+          <div class="col-md-5 col-sm-5">
+              <mat-form-field>
+                  <input matInput [matDatepicker]="pickers" [disabled]="isView" placeholder="Choose a date" name="dti" [(ngModel)]="user.dti">
+                  <mat-datepicker-toggle matSuffix [for]="pickers"></mat-datepicker-toggle>
+                  <mat-datepicker #pickers></mat-datepicker>
+                </mat-form-field>
+          </div>
+          <!-- <div class="col-md-2 col-sm-2"></div>
+          <mat-button-toggle-group name="fontStyle" 
+          aria-label="Font Style" [value]=value
+          (change)="onModeChange($event)">
+          
+              <mat-button-toggle name="mode" [value]="item.value" 
+               *ngFor="let item of mode"
+              >{{item.value}}</mat-button-toggle>
+                        
+            </mat-button-toggle-group> -->
+  </div>
+      <!-- <div class="form-group">
+          <label class="control-label col-md-2 col-sm-2" for="email">Date and time of Injury:</label>
+          <div class="col-md-6 col-sm-6">
+              <mat-form-field>
+                  <input matInput [matDatepicker]="pickers" placeholder="Choose a date" name="dti" ngModel>
+                  <mat-datepicker-toggle matSuffix [for]="pickers"></mat-datepicker-toggle>
+                  <mat-datepicker #pickers></mat-datepicker>
+                </mat-form-field>
+          </div>
+       </div> -->
+       <div class="form-group">
+          <label class="control-label col-md-2 col-sm-2" for="email">Place of Injury:</label>
+          <div class="col-md-3 col-sm-3">
+            <input class="form-control" [disabled]="isView" name="poi" [(ngModel)]="user.poi">
+          </div>
+          <div class="col-md-2 col-sm-2"></div>
+          <div class="col-sm-3">
+          <mat-button-toggle-group name="mode" 
+          aria-label="Font Style" [value]=value
+          [disabled]="isView"
+          (change)="onModeChange($event)"
+          [(ngModel)]="user.a_mode">
+          
+              <mat-button-toggle name="mode" [value]="item.value" 
+               *ngFor="let item of mode"
+              >{{item.value}}</mat-button-toggle>
+                        
+            </mat-button-toggle-group>
+          </div>
+      </div>
+      <hr>
+      <h3>History of Injury</h3>
+      <div class="form-group">
+          <div class="col-md-2 col-sm-2"></div>
+          <div class="col-sm-3">
+          <mat-button-toggle-group name="type" 
+          aria-label="Font Style" [value]=value
+          [disabled]="isView"
+           (change)="onTypeChange($event)"
+           [(ngModel)]="user.a_type">
+          
+              <mat-button-toggle name="type" [value]="item.value" 
+               *ngFor="let item of type"
+              >{{item.value}}</mat-button-toggle>
+                        
+            </mat-button-toggle-group>
+          </div>
+            <div class="col-md-2 col-sm-2"></div>
+        <div class="col-sm-3">
+      <mat-button-toggle-group name="role" 
+      aria-label="Font Style" [value]=value
+      [disabled]="isView"
+     (change)="onRoleChange($event)"
+     [(ngModel)]="user.a_role">
+      
+          <mat-button-toggle name="role" [value]="item.value" 
+           *ngFor="let item of role"
+          >{{item.value}}</mat-button-toggle>
+                    
+        </mat-button-toggle-group>
+        </div>
+  </div>
+  
+      <!-- <div class="col-md-2 col-sm-2"></div>
+      <mat-button-toggle-group name="fontStyle" 
+      aria-label="Font Style" [value]=value
+     (change)="onRoleChange($event)">
+      
+          <mat-button-toggle name="role" [value]="item.value" 
+           *ngFor="let item of role"
+          >{{item.value}}</mat-button-toggle>
+                    
+        </mat-button-toggle-group> -->
+      
+        <div class="form-group">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-3 tp"><mat-checkbox labelPosition="before" 
+              class="example-margin apb" name="helmet"
+              [disabled]="isView"
+              [(ngModel)]="user.helmet" #helmet>
+              Helmet</mat-checkbox></label>
+
+              <div class="col-sm-2"></div>
+          <label class=" col-sm-3 tp"><mat-checkbox labelPosition="before" 
+              class="example-margin ci" name="alcohol"
+              [disabled]="isView"
+              [(ngModel)]="user.alcohol" #alcohol>
+              Alcohol Intake</mat-checkbox></label>
+      </div>
+      <!-- <div class="form-group">
+          <label class="control-label col-md-2 col-sm-2" for="email">Helmet:</label>
+          <div class="col-md-4 col-sm-4 radio-inline">
+              <mat-slide-toggle #helmet></mat-slide-toggle>
+          </div>
+          <label class="control-label col-md-2 col-sm-2" for="email">Alcohol Intake:</label>
+          <div class="col-md-4 col-sm-4 radio-inline">
+              <mat-slide-toggle #alcohol></mat-slide-toggle>
+          </div>
+      </div> -->
+      <hr>
+      <!-- <div class="form-group">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+      <button 
+                class="btn btn-primary btn-block"
+                type="submit">Submit-Details</button>
+          </div>
+          <div class="col-md-3"></div>
+      </div> -->
+
+      <div class="form-group">
+        <div class="col-md-2 col-sm-2"></div>
+        <div class="col-md-4 col-sm-4">
+    <button 
+              class="btn btn-primary btn-block"
+              (click)="goBack()">Previous</button>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <button 
+                    class="btn btn-primary btn-block"
+                    (click)="goNext()">Next</button>
+              </div>
+        <div class="col-md-2 col-sm-2"></div>
+    </div>
+      </form>
+  </div>
+</div>
+

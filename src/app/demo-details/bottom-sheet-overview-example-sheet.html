@@ -1,0 +1,9 @@
+<mat-nav-list>
+  <div *ngFor="let item of arr">
+    <a *ngIf="item.flag=='closed'" [routerLink]="['/addPat']" mat-list-item (click)="openLink(item)">
+      <span mat-line>{{ item.eid }}</span>
+      <span mat-line>{{ item.start_date }}</span>
+    </a>
+    </div>
+  </mat-nav-list>
+  

@@ -1,0 +1,25 @@
+.hello{
+    padding-left: 10px;
+    }
+    
+    label{
+        display: inline-block;
+        /* color:rgb(210, 210, 210); */
+        font-family: Arial, Helvetica, sans-serif;
+        font-variant-caps: all-petite-caps;
+    }
+    
+    /* h3{
+        color:rgb(255, 255, 255);
+    } */
+    .mat-button-toggle-checked{
+        background-color: rgb(55, 81, 228);
+        color: white;
+    }
+    ::ng-deep .kek {
+        background-color: #1473E6 !important
+        
+      }
+      .white-icon {
+        color: white;
+    }

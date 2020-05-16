@@ -1,0 +1,134 @@
+label{
+    display: inline-block;
+    /* color:rgb(210, 210, 210); */
+    font-family: Arial, Helvetica, sans-serif;
+    font-variant-caps: all-petite-caps;
+}
+
+h3{
+    /* color:rgb(255, 255, 255); */
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+    top: 10px;
+  }
+  .mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+    height: 10px;
+    border-radius: 10px;
+  }
+  .mat-slider.mat-slider-horizontal .mat-slider-track-background,
+  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    height: 100%;
+    
+  }
+  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    background-color: rgb(55, 81, 228);
+  }
+  .mat-accent .mat-slider-thumb {
+    height: 80px;
+    width: 30px;
+    background-color: white;
+    border: solid 2px black;
+    bottom: -20px;
+    right: -20px;
+  }
+  .mat-accent .mat-slider-tick{
+    height: 30px;
+    color: green;
+  }
+  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+    background-color: white;
+  }
+  
+mat-checkbox{
+    border:1px solid #ccc;
+   padding:10px;
+   margin:0 0 30px; 
+   padding-left:60px;
+    padding-right:60px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-variant-caps: all-petite-caps;
+  
+  }
+  
+  .mat-checkbox-checked{
+    background-color:rgb(55, 81, 228);
+    color: white;
+  }
+
+  .li{
+      padding-right: 122px;
+  }
+
+  .bfe{
+      padding-right: 90px;
+  }
+
+  .bfn{
+      padding-right: 80px;
+  }
+
+  .apb{
+      padding-right: 27px;
+  }
+
+  .ci{
+      padding-right: 35px;
+  }
+
+  .ai{
+      padding-right: 95px;
+  }
+
+  .pp{
+      padding-right: 89px;
+  }
+
+  .frac{
+      padding-right: 50px;
+  }
+
+  .wnd{
+      padding-right: 68px;
+  }
+
+  .sd{
+      padding-right: 5px;
+  }
+
+  .note{
+      padding-left: 170px;
+    padding-top: 0px;
+  }
+  .note2{
+      padding-left: 70px;
+  }
+.tp{
+    padding-top: 5px;
+    padding-bottom: 4px;
+}
+
+.mat-button-toggle-checked{
+    background-color: rgb(55, 81, 228);
+    color: white;
+}
+
+.nog{
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  ::ng-deep .kek {
+    background-color: #1473E6 !important
+    
+  }
+  .white-icon {
+    color: white;
+}
+/* .test{
+    color: aliceblue;
+    
+} */

@@ -1,0 +1,63 @@
+<mat-horizontal-stepper [linear]="false" #stepper class="set" style="background-color: #fcfcfc;">
+    <mat-step #step1>
+        <ng-template matStepLabel>DEMOGRAPHIC</ng-template>
+        <app-demo-details></app-demo-details>
+        <!-- <button (click)=onDemo()>Next</button> -->
+        <!-- <div class="form-group">
+            <div class="col-md-4"></div>
+            <div class="col-md-3">
+                <button mat-raised-button color="accent" (click)="goBack(stepper)">Previous</button>
+                
+            </div>
+            <div class="col-md-3">
+                <button mat-raised-button color="accent" (click)="goNext(stepper)">Next</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div> -->
+    </mat-step>
+    <mat-step #step2>
+        <ng-template matStepLabel>PHYSICAL</ng-template>
+        <app-physical-examination></app-physical-examination>
+        <!-- <div class="form-group">
+            <div class="col-md-4"></div>
+            <div class="col-md-3">
+                <button mat-raised-button color="accent" (click)="goBack(stepper)">Previous</button>
+                
+            </div>
+            <div class="col-md-3">
+                <button mat-raised-button color="accent" (click)="goNext(stepper)">Next</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div> -->
+    </mat-step>
+    <mat-step #step3>
+      <ng-template matStepLabel class="lab">NEUROLOGICAL</ng-template>
+      <app-neurological-examination></app-neurological-examination>
+      <!-- <div class="form-group">
+        <div class="col-md-4"></div>
+        <div class="col-md-3">
+            <button mat-raised-button color="accent" (click)="goBack(stepper)">Previous</button>
+            
+        </div>
+        <div class="col-md-3">
+            <button mat-raised-button color="accent" (click)="goNext(stepper)">Next</button>
+        </div>
+        <div class="col-md-3"></div>
+    </div> -->
+    </mat-step>
+    <mat-step #step4>
+        <ng-template matStepLabel>CLINICAL</ng-template>
+        <app-clinical-impression></app-clinical-impression>
+        <!-- <div class="form-group">
+            <div class="col-md-4"></div>
+            <div class="col-md-3">
+                <button mat-raised-button color="accent" (click)="goBack(stepper)">Previous</button>
+                
+            </div>
+            <div class="col-md-3">
+                <button mat-raised-button color="accent" (click)="goNext(stepper)">Next</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div> -->
+      </mat-step>
+  </mat-horizontal-stepper>

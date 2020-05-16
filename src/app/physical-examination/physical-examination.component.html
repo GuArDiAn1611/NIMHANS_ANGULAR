@@ -1,0 +1,475 @@
+<div class="col-sm-12">
+    <div class="row">
+        <form class="form-horizontal" #f="ngForm">
+            <h3>History Following Trauma</h3>
+            <div class="form-group no-gutters">
+                <div class="col-sm-2 text-right nog"><button mat-mini-fab color="primary" class="kek" (click)="openDialog('loc')"><mat-icon class="white-icon">edit</mat-icon></button></div>
+                <label class=" col-sm-3 tp nog"><mat-checkbox labelPosition="before" 
+                    class="example-margin" [disabled]="isView"
+                    [(ngModel)]="user.loc" [ngModelOptions]="{standalone: true}" #loc>
+                    Loss of Consciousness</mat-checkbox></label>
+
+                    <div class="col-sm-2 text-right nog"><button mat-mini-fab color="primary" class="kek" (click)="openDialog('vom')"><mat-icon class="white-icon">edit</mat-icon></button></div>
+                <label class=" col-sm-4 tp nog"><mat-checkbox labelPosition="before" 
+                    class="example-margin" [disabled]="isView"
+                    [(ngModel)]="user.vom" [ngModelOptions]="{standalone: true}" #vom>
+                    Vomiting</mat-checkbox></label>
+                <!-- <label class="control-label col-md-6" for="email">Loss of Consciousness:
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #loc></mat-slide-toggle>
+                </div>
+                </label>
+                
+                <label class="control-label col-md-2" for="email">Vomiting:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #vom></mat-slide-toggle>
+                </div> -->
+            </div>
+
+            <div class="form-group no-gutters">
+                <div class="col-sm-2 text-right nog"><button mat-mini-fab color="primary" class="kek" (click)="openDialog('li')"><mat-icon class="white-icon">edit</mat-icon></button></div>
+                <label class=" col-sm-4 tp nog"><mat-checkbox labelPosition="before" 
+                    class="example-margin li" [disabled]="isView"
+                    [(ngModel)]="user.li" [ngModelOptions]="{standalone: true}" #li>
+                    Lucid Interval</mat-checkbox></label>
+
+                    <div class="col-sm-1 text-right nog"><button mat-mini-fab color="primary" class="kek" (click)="openDialog('amn')"><mat-icon class="white-icon">edit</mat-icon></button></div>
+                <label class=" col-sm-4 tp nog"><mat-checkbox labelPosition="before" 
+                    class="example-margin" [disabled]="isView"
+                    [(ngModel)]="user.amn" [ngModelOptions]="{standalone: true}" #amn>
+                    Amnesia</mat-checkbox></label>
+                <!-- <label class="control-label col-md-2" for="email">Lucid Interval:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #li></mat-slide-toggle>
+                </div>
+                <label class="control-label col-md-2" for="email">Amnesia:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #amn></mat-slide-toggle>
+                </div> -->
+            </div>
+
+            <div class="form-group no-gutters">
+                <div class="col-sm-2 text-right nog"><button mat-mini-fab color="primary" class="kek" (click)="openDialog('bfe')"><mat-icon class="white-icon">edit</mat-icon></button></div>
+                <label class=" col-sm-4 tp nog"><mat-checkbox labelPosition="before" 
+                    class="example-margin bfe" [disabled]="isView"
+                    [(ngModel)]="user.bfe" [ngModelOptions]="{standalone: true}" #bfe>
+                    Bleeding From Ear</mat-checkbox></label>
+
+                    <div class="col-sm-1 text-right nog"><button mat-mini-fab color="primary" class="kek" (click)="openDialog('seiz')"><mat-icon class="white-icon">edit</mat-icon></button></div>
+                <label class=" col-sm-4 tp nog"><mat-checkbox labelPosition="before" 
+                    class="example-margin" [disabled]="isView"
+                    [(ngModel)]="user.seiz" [ngModelOptions]="{standalone: true}" #seiz>
+                    Seizures</mat-checkbox></label>
+                <!-- <label class="control-label col-md-2" for="email">Seizures:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #seiz></mat-slide-toggle>
+                </div>
+                <label class="control-label col-md-2" for="email">Bleeding From:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle class="test" #bfe>Ear</mat-slide-toggle>
+                    <mat-slide-toggle class="test" style="padding-left: 10px;" #bfn>Nose</mat-slide-toggle>
+                </div> -->
+            </div>
+
+            <div class="form-group no-gutters">
+                <div class="col-sm-2 text-right nog"><button mat-mini-fab color="primary" class="kek" (click)="openDialog('bfn')"><mat-icon class="white-icon">edit</mat-icon></button></div>
+                <label class=" col-sm-4 tp nog"><mat-checkbox labelPosition="before" 
+                    class="example-margin bfn" [disabled]="isView"
+                    [(ngModel)]="user.bfn" [ngModelOptions]="{standalone: true}" #bfn>
+                    Bleeding From Nose</mat-checkbox></label>
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-1">
+                        <button mat-fab color="accent" (click)="openDialog('hft')"
+                        class="kek"><mat-icon class="white-icon">edit</mat-icon></button>
+                    </div>
+            </div>
+            <hr>
+
+            <h3>Vital Signs on Arrival</h3>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Airway on Arrival:</label>
+                    <div class="col-sm-3">
+                        <mat-button-toggle-group name="aoa"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        (change)="onAoaChange($event)"
+                        [(ngModel)]="user.aoa"
+                        >
+                        
+                            <mat-button-toggle name="Aoa" [value]="item" 
+                             *ngFor="let item of aoas"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                        </div>
+
+                <label class="control-label col-sm-2" for="email">Spontaneous Respiration:</label>
+                    <div class="col-sm-2">
+                        <mat-button-toggle-group name="sr"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        (change)="onSrChange($event)"
+                        [(ngModel)]="user.sr"
+                        >
+                        
+                            <mat-button-toggle name="Sr" [value]="item" 
+                             *ngFor="let item of srs"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                        </div>
+            </div>
+
+
+            <!-- <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Spontaneous Respiration:</label>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <mat-button-toggle-group name="fontStyle"
+                        aria-label="Font Style" [value]=value
+                        (change)="onSrChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Sr" [value]="item" 
+                             *ngFor="let item of srs"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                        </div>
+                </div>
+            </div> -->
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Carotid Pulsations:</label>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <mat-button-toggle-group name="cp"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        (change)="onCpChange($event)"
+                        [(ngModel)]="user.cp"
+                        >
+                        
+                            <mat-button-toggle name="Cp" [value]="item" 
+                             *ngFor="let item of cps"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-top: 10px;"></div>
+            
+            <mat-card>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Pulse Rate:</label>
+                <div class="col-sm-1">
+                  <input class="form-control" placeholder="/min" [disabled]="isView" [value]="user.pulse1+user.pulse2" name="pulse" [(ngModel)]="user.pr">
+                </div>
+            </div>
+
+            <div>
+                <div class="col-sm-2"></div>
+                <p *ngFor="let item of slide_num_1" 
+                style="display:inline; padding-right: 21px; font-size: smaller;">{{item}}</p>
+                <p *ngFor="let item of slide_num_2" 
+                style="display:inline; padding-right: 15px; font-size: smaller;">{{item}}</p>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <mat-slider style="width: 700px;"
+                class="example-margin"
+                [disabled]="isView"
+                [max]="200"
+                [min]="0"
+                [step]="10"
+                [thumbLabel]="true"
+                [tickInterval]="1"
+                [(ngModel)]="user.pulse1"
+                name="pulse1">
+            </mat-slider>
+            </div>
+
+            <div>
+                <div class="col-sm-2"></div>
+                <p *ngFor="let item of slide_num_3" 
+                style="display:inline; padding-right: 41px; font-size: smaller;">{{item}}</p>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <mat-slider style="width: 500px;"
+                class="example-margin"
+                [disabled]="isView"
+                [max]="10"
+                [min]="0"
+                [step]="1"
+                [thumbLabel]="true"
+                [tickInterval]="1"
+                [(ngModel)]="user.pulse2"
+                name="pulse2">
+            </mat-slider>
+            </div>
+        </mat-card>
+
+        <div style="padding-top: 10px;"></div>
+            
+        <mat-card>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Blood Pressure</label>
+            <div class="col-sm-1"><p style="padding-top: 7px;">Systolic:</p></div>
+            <div class="col-sm-1">
+                
+              <input class="form-control" placeholder="/mmHg" [disabled]="isView" [value]="user.bps1+user.bps2" name="bps" [(ngModel)]="user.bps">
+            </div>
+        </div>
+
+        <div>
+            <div class="col-sm-2"></div>
+            <p *ngFor="let item of slide_num_1" 
+            style="display:inline; padding-right: 21px; font-size: smaller;">{{item}}</p>
+            <p *ngFor="let item of slide_num_2" 
+            style="display:inline; padding-right: 15px; font-size: smaller;">{{item}}</p>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-2"></div>
+            <mat-slider style="width: 700px;"
+            class="example-margin"
+            [disabled]="isView"
+            [max]="200"
+            [min]="0"
+            [step]="10"
+            [thumbLabel]="true"
+            [tickInterval]="1"
+            [(ngModel)]="user.bps1"
+            name="bps1">
+        </mat-slider>
+        </div>
+
+        <div>
+            <div class="col-sm-2"></div>
+            <p *ngFor="let item of slide_num_3" 
+            style="display:inline; padding-right: 41px; font-size: smaller;">{{item}}</p>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-2"></div>
+            <mat-slider style="width: 500px;"
+            class="example-margin"
+            [disabled]="isView"
+            [max]="10"
+            [min]="0"
+            [step]="1"
+            [thumbLabel]="true"
+            [tickInterval]="1"
+            [(ngModel)]="user.bps2"
+            name="bps2">
+        </mat-slider>
+        </div>
+
+        <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-1"><p style="padding-top: 7px;">Dyastolic:</p></div>
+        <div class="col-sm-1">
+          <input class="form-control" placeholder="/mmHg" [disabled]="isView" [value]="user.bpd1 + user.bpd2" name="bpd" [(ngModel)]="user.bpd">
+        </div>
+        </div>
+    
+        <div>
+            <div class="col-sm-2"></div>
+            <p *ngFor="let item of slide_num_1" 
+            style="display:inline; padding-right: 21px; font-size: smaller;">{{item}}</p>
+            <p *ngFor="let item of slide_num_2" 
+            style="display:inline; padding-right: 15px; font-size: smaller;">{{item}}</p>
+        </div>
+
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <mat-slider style="width: 700px;"
+        class="example-margin"
+        [disabled]="isView"
+        [max]="200"
+        [min]="0"
+        [step]="10"
+        [thumbLabel]="true"
+        [tickInterval]="1"
+        [(ngModel)]="user.bpd1"
+        name="bpd1">
+    </mat-slider>
+    </div>
+
+    <div>
+        <div class="col-sm-2"></div>
+        <p *ngFor="let item of slide_num_3" 
+        style="display:inline; padding-right: 41px; font-size: smaller;">{{item}}</p>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <mat-slider style="width: 500px;"
+        class="example-margin"
+        [disabled]="isView"
+        [max]="10"
+        [min]="0"
+        [step]="1"
+        [thumbLabel]="true"
+        [tickInterval]="1"
+        [(ngModel)]="user.bpd2"
+        name="bpd2">
+    </mat-slider>
+    </div>
+    </mat-card>
+
+            <!-- <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Blood Pressure on Arrival:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" placeholder="/mmHg" name="bpa" ngModel>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Blood Pressure after Half Hour:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" placeholder="/mmHg" name="bphh" ngModel>
+                </div>
+            </div> -->
+            <hr>
+
+            <h3>Systemic Examination</h3>
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <mat-button-toggle-group name="type"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        (change)="onTypeChange($event)"
+                        [(ngModel)]="user.type"
+                        >
+                        
+                            <mat-button-toggle name="type" [value]="item" 
+                             *ngFor="let item of types"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <label class="col-sm-4 tp"><mat-checkbox labelPosition="before" 
+                    class="example-margin apb" [disabled]="isView"
+                    [(ngModel)]="user.apb" [ngModelOptions]="{standalone: true}" #apb>
+                    Active peripheral Bleeding</mat-checkbox></label>
+
+                    <div class="col-sm-1"></div>
+                <label class=" col-sm-4 tp"><mat-checkbox labelPosition="before" 
+                    class="example-margin ci" [disabled]="isView"
+                    [(ngModel)]="user.ci" [ngModelOptions]="{standalone: true}" #ci>
+                    Chest Injury</mat-checkbox></label>
+                <!-- <label class="control-label col-md-2" for="email">Active peripheral Bleeding:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #apb></mat-slide-toggle>
+                </div>
+                <label class="control-label col-md-2" for="email">Chest Injury:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #ci></mat-slide-toggle>
+                </div> -->
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <label class=" col-sm-4 tp"><mat-checkbox labelPosition="before" 
+                    class="example-margin ai" [disabled]="isView"
+                    [(ngModel)]="user.ai" [ngModelOptions]="{standalone: true}" #ai>
+                    Abdominal Injury</mat-checkbox></label>
+
+                    <div class="col-sm-1"></div>
+                <label class=" col-sm-4 tp"><mat-checkbox labelPosition="before" 
+                    class="example-margin frac" [disabled]="isView"
+                    [(ngModel)]="user.frac" [ngModelOptions]="{standalone: true}" #frac>
+                    Fractures</mat-checkbox></label>
+                <!-- <label class="control-label col-md-2" for="email">Fractures:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #frac></mat-slide-toggle>
+                </div>
+                <label class="control-label col-md-2" for="email">Abdominal Injury:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #ai></mat-slide-toggle>
+                </div> -->
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <label class=" col-sm-4 tp"><mat-checkbox labelPosition="before" 
+                    class="example-margin pp" [disabled]="isView"
+                    [(ngModel)]="user.pp" [ngModelOptions]="{standalone: true}" #pp>
+                    Peripheral Pulses</mat-checkbox></label>
+
+                    <div class="col-sm-1"></div>
+                <label class=" col-sm-4 tp"><mat-checkbox labelPosition="before" 
+                    class="example-margin wnd" [disabled]="isView"
+                    [(ngModel)]="user.wnd" [ngModelOptions]="{standalone: true}" #wnd>
+                    Wounds</mat-checkbox></label>
+                    <div class="col-sm-1">
+                        <button mat-fab color="accent" (click)="openDialog('se')"
+                         class="kek"><mat-icon class="white-icon">edit</mat-icon></button>
+                    </div>
+                <!-- <label class="control-label col-md-2" for="email">Peripheral Pulses:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #pp></mat-slide-toggle>
+                </div>
+                <label class="control-label col-md-2" for="email">Wounds:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #wnd></mat-slide-toggle>
+                </div> -->
+            </div>
+
+            <hr>
+
+            <h3>Details of Spine Examination</h3>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <label class=" col-sm-4"><mat-checkbox labelPosition="before" 
+                    class="example-margin pp" [disabled]="isView"
+                    [(ngModel)]="user.st" [ngModelOptions]="{standalone: true}" #st>
+                    Spinal Tenderness</mat-checkbox></label>
+
+                    <div class="col-sm-1"></div>
+                <label class=" col-sm-4"><mat-checkbox labelPosition="before" 
+                    class="example-margin sd" [disabled]="isView"
+                    [(ngModel)]="user.sd" [ngModelOptions]="{standalone: true}" #sd>
+                    Spinal Deformity</mat-checkbox></label>
+                <!-- <label class="control-label col-md-2" for="email">Spinal Tenderness:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #st></mat-slide-toggle>
+                </div>
+                <label class="control-label col-md-2" for="email">Spinal Deformity:</label>
+                <div class="col-md-4 radio-inline">
+                    <mat-slide-toggle #sd></mat-slide-toggle>
+                </div> -->
+            </div>
+            <hr>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+            <button 
+                      class="btn btn-primary btn-block"
+                      (click)="goBack()">Previous</button>
+                </div>
+                <div class="col-sm-4">
+                  <button 
+                            class="btn btn-primary btn-block"
+                            (click)="goNext()">Next</button>
+                      </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </form>
+    </div>
+</div>

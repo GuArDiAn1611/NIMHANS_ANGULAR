@@ -1,0 +1,116 @@
+<div class="col-sm-12">
+    <div class="row">
+        <form class="form-horizontal" #fl="ngForm">
+            <label class="control-label col-sm-5" for="email"><h4><strong> Change in GCS/Neurological Examination:</strong></h4></label>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <mat-button-toggle-group name="fontStyle"
+                    aria-label="Font Style" [value]=value
+                    [(ngModel)]="user.gcs" [disabled]="isView"
+                    (change)="onGcsChange($event)"
+                    >
+        
+                    <mat-button-toggle name="Gcs" [value]="item" 
+                    *ngFor="let item of gcs"
+                    >{{item}}</mat-button-toggle>
+                      
+                </mat-button-toggle-group>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email"><h4><strong> CT Scan Head Showed:</strong></h4></label>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-9">
+            <textarea class="form-control col-sm-2" [disabled]="isView" name="head" [(ngModel)]="user.head" cols="5" rows="5" style="margin: 10px; width: 562px; height: 142px;"></textarea>
+            </div>
+                <button mat-fab color="accent" class="kek" (click)="openDialog('headS')"
+                style="position: absolute; bottom: 0px;"><mat-icon class="white-icon">edit</mat-icon></button>
+            </div>
+        </div>
+
+        <hr>
+        
+        <div class="form-group">
+            <label class="control-label" style="padding-left: 90px;" for="email"><h4><strong> Other Relevent Investigations(X-rays/MRI):</strong></h4></label>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-9">
+            <textarea class="form-control col-sm-2" [disabled]="isView" name="ori" [(ngModel)]="user.ori" cols="5" rows="5" style="margin: 10px; width: 735px; height: 268px;"></textarea>
+            </div>
+                <button mat-fab color="accent" (click)="openDialog('ori')"
+                 class="kek" style="position: absolute; bottom: 0px;"><mat-icon class="white-icon">edit</mat-icon></button>
+            </div>
+        </div>
+
+        <hr>
+        
+        <div class="form-group">
+            <label class="control-label" style="padding-left: 90px;" for="email"><h4><strong>Management Plan(in Hospital):</strong></h4></label>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-9">
+            <textarea class="form-control col-sm-2" [disabled]="isView" name="mp" [(ngModel)]="user.mp" cols="5" rows="5" style="margin: 10px; width: 735px; height: 268px;"></textarea>
+            </div>
+            <button mat-fab color="accent" (click)="openDialog('mp')"
+                 class="kek" style="position: absolute; bottom: 0px;"><mat-icon class="white-icon">edit</mat-icon></button>
+            </div>
+        </div>
+
+        <hr>
+        
+        <div class="form-group">
+            <label class="control-label" style="padding-left: 90px;" for="email"><h4><strong> Course in the Hospital(including CT scan done,if any):</strong></h4></label>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-9">
+            <textarea class="form-control col-sm-2" [disabled]="isView" name="ch" [(ngModel)]="user.ch" cols="5" rows="5" style="margin: 10px; width: 735px; height: 268px;"></textarea>
+            </div>
+            <button mat-fab color="accent" (click)="openDialog('ch')"
+                 class="kek" style="position: absolute; bottom: 0px;"><mat-icon class="white-icon">edit</mat-icon></button>
+            </div>
+        </div>
+
+        <hr>
+        
+        <div class="form-group">
+            <label class="control-label" style="padding-left: 90px;" for="email"><h4><strong>Condition at Discharge:</strong></h4></label>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-9">
+            <textarea class="form-control col-sm-2" [disabled]="isView" name="cd" [(ngModel)]="user.cd" cols="5" rows="5" style="margin: 10px; width: 735px; height: 268px;"></textarea>
+            </div>
+            <button mat-fab color="accent" (click)="openDialog('cd')"
+                 class="kek" style="position: absolute; bottom: 0px;"><mat-icon class="white-icon">edit</mat-icon></button>
+            </div>
+        </div>
+
+        <hr>
+            <div class="form-group">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+            <button 
+                      class="btn btn-primary btn-block"
+                      [disabled]="isView"
+                      type="submit" (click)="onSubmit()">Submit-Details</button>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,428 @@
+<div class="col-sm-12">
+    <div class="row">
+        <form class="form-horizontal" #f="ngForm">
+            <h2 style="padding-bottom: 30px;">GLASSGOW COMA SCALE</h2>
+            <mat-card>
+            <div class="form-group">
+                <!-- <label class="control-label col-sm-3" for="email"><h3><strong>INITIAL</strong></h3></label>
+                <div class="col-sm-3"></div>
+                <label class="control-label col-sm-3" for="email"><h3><strong>AFTER</strong></h3></label> --> 
+                <div class="col-sm-1"></div>
+                <mat-button-toggle name="initial" class="col-sm-1" [checked]="!after.checked" #initial
+                            (click)="onInitial()">Initial</mat-button-toggle>
+                            <div style="padding-left: 20px; padding-right: 20px;"></div>
+                <mat-button-toggle name="after" class="col-sm-1" [checked]="!initial.checked" #after
+                            (click)="onAfter()">After</mat-button-toggle>
+
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1" style="padding-top: 20px;">
+                <input class="form-control" [value]="user.eosi" name="eosi" [disabled]="isView" ngModel style="width: 40px; right: 10px; position: absolute;">
+              </div>
+                <label class="control-label col-sm-1" for="email" style="text-align: center; padding-top: 1px;"><h3><strong>E</strong></h3></label>
+                <div class="col-sm-1" style="padding-top: 20px;">
+                    <input class="form-control" [value]="user.eosa" name="eosa" [disabled]="isView" ngModel style="width: 40px;">
+                  </div>
+                    <div *ngIf="isInitial" class="col-sm-8" style="padding-top: 10px;">
+                        <mat-button-toggle-group name="eosi"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        [(ngModel)]="user.eosi"
+                        (change)="onEosiChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Eosi" [value]="item"
+                            style="display: block; width: 200px;" 
+                             *ngFor="let item of eos"
+                            >{{item}}</mat-button-toggle>
+                               
+                            
+                          </mat-button-toggle-group>
+                </div>
+                <div *ngIf="!isInitial" class="col-sm-8" style="padding-top: 10px;">
+                  <mat-button-toggle-group name="eosa"
+                  aria-label="Font Style" [value]=value
+                  [disabled]="isView"
+                  [(ngModel)]="user.eosa"
+                  (change)="onEosaChange($event)"
+                  >
+                  
+                      <mat-button-toggle name="Eosa" [value]="item" 
+                      style="display: block; width: 200px;" 
+                       *ngFor="let item of eos"
+                      >{{item}}</mat-button-toggle>
+                                
+                    </mat-button-toggle-group>
+                  </div>
+                <!-- <div class="col-sm-3"></div>
+                <div class="form-group">
+                    <div class="col-sm-1" style="padding-top: 20px;">
+                        <input class="form-control" [value]="user.eosa" name="eosa" [disabled]="true" ngModel style="width: 40px;">
+                      </div>
+                    <div class="col-sm-2" style="padding-top: 10px;">
+                        <mat-button-toggle-group name="eosa"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        [(ngModel)]="user.eosa"
+                        (change)="onEosaChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Eosa" [value]="item" 
+                            style="display: block; width: 70px;" 
+                             *ngFor="let item of eos"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                        </div>
+                </div> -->
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1" style="padding-top: 20px;">
+                <input class="form-control" [value]="user.mrsi" name="mrsi" [disabled]="isView" ngModel style="width: 40px; right: 10px; position: absolute;">
+              </div>
+                <label class="control-label col-sm-1" for="email" style="text-align: center; padding-top: 1px;"><h3><strong>M</strong></h3></label>
+                <div class="col-sm-1" style="padding-top: 20px;">
+                    <input class="form-control" [value]="user.mrsa" name="mrsa" [disabled]="isView" ngModel style="width: 40px;">
+                  </div>
+                    <div *ngIf="isInitial" class="col-sm-8" style="padding-top: 10px;">
+                        <mat-button-toggle-group name="mrsi"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        [(ngModel)]="user.mrsi"
+                        (change)="onMrsiChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Mrsi" [value]="item"
+                            style="display: block; width: 133.33px;" 
+                             *ngFor="let item of mrs"
+                            >{{item}}</mat-button-toggle>
+                               
+                            
+                          </mat-button-toggle-group>
+                </div>
+                <div *ngIf="!isInitial" class="col-sm-8" style="padding-top: 10px;">
+                  <mat-button-toggle-group name="mrsa"
+                  aria-label="Font Style" [value]=value
+                  [disabled]="isView"
+                  [(ngModel)]="user.mrsa"
+                  (change)="onMrsaChange($event)"
+                  >
+                  
+                      <mat-button-toggle name="Mrsa" [value]="item" 
+                      style="display: block; width: 133.33px;" 
+                       *ngFor="let item of mrs"
+                      >{{item}}</mat-button-toggle>
+                                
+                    </mat-button-toggle-group>
+                  </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1" style="padding-top: 20px;">
+                <input class="form-control" [value]="user.rsi" name="rsi" [disabled]="isView" ngModel style="width: 40px; right: 10px; position: absolute;">
+              </div>
+                <label class="control-label col-sm-1" for="email" style="text-align: center; padding-top: 1px;"><h3><strong>V</strong></h3></label>
+                <div class="col-sm-1" style="padding-top: 20px;">
+                    <input class="form-control" [value]="user.rsa" name="rsa" [disabled]="isView" ngModel style="width: 40px;">
+                  </div>
+                    <div *ngIf="isInitial" class="col-sm-8" style="padding-top: 10px;">
+                        <mat-button-toggle-group name="rsi"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        [(ngModel)]="user.rsi"
+                        (change)="onRsiChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Rsi" [value]="item"
+                            style="display: block; width: 160px;" 
+                             *ngFor="let item of rs"
+                            >{{item}}</mat-button-toggle>
+                               
+                            
+                          </mat-button-toggle-group>
+                </div>
+                <div *ngIf="!isInitial" class="col-sm-8" style="padding-top: 10px;">
+                  <mat-button-toggle-group name="rsa"
+                  aria-label="Font Style" [value]=value
+                  [disabled]="isView"
+                  [(ngModel)]="user.rsa"
+                  (change)="onRsaChange($event)"
+                  >
+                  
+                      <mat-button-toggle name="Rsa" [value]="item" 
+                      style="display: block; width: 160px;" 
+                       *ngFor="let item of rs"
+                      >{{item}}</mat-button-toggle>
+                                
+                    </mat-button-toggle-group>
+                  </div>
+                  <div class="col-sm-1">
+                    <button mat-fab color="accent" (click)="openDialog('gcs')"
+                    class="kek"><mat-icon class="white-icon">edit</mat-icon></button>
+                </div>
+            </div>
+
+            <!-- <div class="form-group">
+                <label class="control-label col-sm-1" for="email" style="text-align: center; padding-top: 1px;"><h3><strong>M</strong></h3></label>
+                <div class="col-sm-1" style="padding-top: 20px;">
+                    <input class="form-control" [value]="user.mrsi" name="mrsi" [disabled]="true" ngModel style="width: 40px;">
+                  </div>
+                    <div class="col-sm-2" style="padding-top: 20px;">
+                        <mat-button-toggle-group name="mrsi"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        [(ngModel)]="user.mrsi"
+                        (change)="onMrsiChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Mrsi" [value]="item" 
+                            style="display: block; width: 46.66px;"
+                             *ngFor="let item of mrs"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                </div>
+
+                <div class="col-sm-3"></div>
+                <div class="form-group">
+                    <div class="col-sm-1" style="padding-top: 20px;">
+                        <input class="form-control" [value]="user.mrsa" name="mrsa" [disabled]="true" ngModel style="width: 40px;">
+                      </div>
+                    <div class="col-sm-2" style="padding-top: 20px;">
+                        <mat-button-toggle-group name="mrsa"
+                        aria-label="Font Style" [value]=value
+                        [disabled]="isView"
+                        [(ngModel)]="user.mrsa"
+                        (change)="onMrsaChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Mrsa" [value]="item"
+                            style="display: block; width: 46.66px;" 
+                             *ngFor="let item of mrs"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                        </div>
+                </div>
+            </div> -->
+
+            
+
+            <!-- <div class="form-group">
+                <label class="control-label col-sm-1" for="email" style="text-align: center; padding-top: 1px;"><h3><strong>V</strong></h3></label>
+                <div class="col-sm-1" style="padding-top: 20px;">
+                    <input class="form-control" [value]="user.rsi" name="rsi" [disabled]="true" ngModel style="width: 40px;">
+                  </div>
+                    <div class="col-sm-2" style="padding-top: 20px;">
+                        <mat-button-toggle-group name="rsi"
+                        aria-label="Font Style" [value]=value
+                        [(ngModel)]="user.rsi" [disabled]="isView"
+                        (change)="onRsiChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Rsi" [value]="item"
+                            style="display: block; width: 56px;"  
+                             *ngFor="let item of rs"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                </div>
+
+                <div class="col-sm-3"></div>
+                <div class="form-group">
+                    <div class="col-sm-1" style="padding-top: 20px;">
+                        <input class="form-control" [value]="user.rsa" name="rsa" [disabled]="true" ngModel style="width: 40px;">
+                      </div>
+                    <div class="col-sm-2" style="padding-top: 20px;">
+                        <mat-button-toggle-group name="rsa"
+                        aria-label="Font Style" [value]=value
+                        [(ngModel)]="user.rsa" [disabled]="isView"
+                        (change)="onRsaChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Rsa" [value]="item" 
+                            style="display: block; width: 56px;" 
+                             *ngFor="let item of rs"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                        </div>
+                </div>
+            </div> -->
+        </mat-card>
+            <hr>
+
+            <h3>Horizontal Oculocephalic Reflex</h3>
+            
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Right:</label>
+                    <div class="col-sm-2">
+                        <mat-button-toggle-group name="horr"
+                        aria-label="Font Style" [value]=value
+                        [(ngModel)]="user.horr" [disabled]="isView"
+                        (change)="onHorrChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Hor" [value]="item" 
+                             *ngFor="let item of hor"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                </div>
+
+                <label class="control-label col-sm-3" for="email">Left:</label>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <mat-button-toggle-group name="horl"
+                        aria-label="Font Style" [value]=value
+                        [(ngModel)]="user.horl" [disabled]="isView"
+                        (change)="onHorlChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Horl" [value]="item" 
+                             *ngFor="let item of hor"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                        </div>
+                </div>
+            </div>
+
+            <h3>Pupilliary Light Reflex</h3>
+            
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Right:</label>
+                    <div class="col-sm-2">
+                        <mat-button-toggle-group name="plrr"
+                        aria-label="Font Style" [value]=value
+                        [(ngModel)]="user.plrr" [disabled]="isView"
+                        (change)="onPlrrChange($event)"
+                        >
+                        
+                            <mat-button-toggle name="Plrr" [value]="item" 
+                             *ngFor="let item of plr"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                </div>
+
+                <label class="control-label col-sm-3" for="email">Left:</label>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <mat-button-toggle-group name="plrl"
+                        aria-label="Font Style" [value]=value
+                        [(ngModel)]="user.plrl" [disabled]="isView"
+                        (change)="onPlrlChange($event)" class="jest"
+                        >
+                        
+                            <mat-button-toggle name="Plrl" [value]="item" 
+                             *ngFor="let item of plr" class="jest"
+                            >{{item}}</mat-button-toggle>
+                                      
+                          </mat-button-toggle-group>
+                        </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <h3>Motor System Examination</h3>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="email"><h4><strong>RIGHT</strong></h4></label>
+                <div class="col-sm-2"></div>
+                <label class="control-label col-sm-3" for="email"><h4><strong>LEFT</strong></h4></label>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Tone:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" name="toneur" ngModel>
+                </div>
+
+                <label class="control-label col-sm-3" for="email">Tone:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" name="toneul" ngModel>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-1" for="email"><h4><strong>UPPER:</strong></h4></label>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Power:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" name="powerur" ngModel>
+                </div>
+
+                <label class="control-label col-sm-3" for="email">Power:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" name="powerul" ngModel>
+                </div>
+            </div>
+
+            <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-8"><hr></div>
+            
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Tone:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" name="tonelr" ngModel>
+                </div>
+
+                <label class="control-label col-sm-3" for="email">Tone:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" name="tonell" ngModel>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-1" for="email"><h4><strong>LOWER:</strong></h4></label>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Power:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" name="powerlr" ngModel>
+                </div>
+
+                <label class="control-label col-sm-3" for="email">Power:</label>
+                <div class="col-sm-2">
+                  <input class="form-control" name="powerll" ngModel>
+                </div>
+            </div>
+
+            <hr>
+            <h3>Neurological Deficits</h3>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <textarea class="form-control col-sm-2" name="nd" [disabled]="isView" [(ngModel)]="user.nd" cols="5" rows="5" style="margin: 10px; width: 562px; height: 142px;"></textarea>
+            </div>
+
+            <hr>
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+            <button 
+                      class="btn btn-primary btn-block"
+                      (click)="goBack()">Previous</button>
+                </div>
+                <div class="col-sm-4">
+                  <button 
+                            class="btn btn-primary btn-block"
+                            (click)="goNext()">Next</button>
+                      </div>
+                <div class="col-sm-2"></div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
