@@ -26,6 +26,7 @@ export class ClinicalImpressionComponent implements OnInit,OnDestroy {
 
   animal: string;
   name: string;
+  value: any;
 
   @ViewChild('fl', { static: false }) cli_det: NgForm;
   // @ViewChild('headS', { static: false }) headS: ElementRef;

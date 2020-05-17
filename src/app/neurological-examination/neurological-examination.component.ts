@@ -19,6 +19,7 @@ export interface DialogData {
 })
 export class NeurologicalExaminationComponent implements OnInit,OnDestroy {
 
+  value: any;
   animal: string;
   name: string; 
 

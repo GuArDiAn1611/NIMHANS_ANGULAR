@@ -26,6 +26,7 @@ export class DemoDetailsComponent implements OnInit, OnDestroy {
   @ViewChild('f', { static: false }) signupForm: NgForm;
   // @ViewChild('helmet', { static: false }) checkHelmet:MatSlideToggle;
   // @ViewChild('alcohol', { static: false }) checkAlcohol:MatSlideToggle;
+  value: any;
   genders=['male','female'];
   isView =false;
   postUrl:string;
