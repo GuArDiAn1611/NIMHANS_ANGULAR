@@ -32,6 +32,10 @@ pipeline {
         		}
       		}
     	}
-
+	stage('Trigger Rundeck'){
+    		steps {
+    			build 	'rundeck-test'
+    		}
+    	}
     }
 }
