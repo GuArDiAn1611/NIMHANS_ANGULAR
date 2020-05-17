@@ -8,6 +8,7 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 })
 export class AdminTableComponent implements OnInit {
 
+  onClick:any;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   value: any;
   dataset:any[];
