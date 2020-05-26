@@ -13,7 +13,7 @@ pipeline {
         }
 	stage('Testing Phase'){
 	    steps {
-                sh "ng test --single-run true"
+                sh "ng test"
             }
 	}
         stage('Building Angular Application') { 
