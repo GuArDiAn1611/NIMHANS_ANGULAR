@@ -14,6 +14,7 @@ pipeline {
         stage('Building Angular Application') { 
             steps {
                 sh "ng build --prod --aot"
+		logstashSend failBuild: true, maxLines: 1000
             }
         }
          stage('Building Docker Image') {
@@ -27,7 +28,7 @@ pipeline {
       		steps {
         		script {
           			docker.withRegistry( '', registryCredential ) {
-            		dockerImage.push()
+            			dockerImage.push()
           			}
         		}
       		}
