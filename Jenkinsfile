@@ -34,7 +34,7 @@ pipeline {
     	}
 	stage('Trigger Rundeck'){
     		steps {
-    			build 	'rundeck-testt'
+    			build 	'rundeck-test'
     		}
     	}
     }
