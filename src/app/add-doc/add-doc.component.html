@@ -1,0 +1,52 @@
+<mat-card>
+    <mat-card-content>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <mat-form-field class="full-width-input">
+              <input matInput type="text" placeholder="Doctor Name" [(ngModel)]="doc.dname" name="dname" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="full-width-input">
+            <input matInput type="text" placeholder="Contact Info" [(ngModel)]="doc.dcontact" name="contact">
+          </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field class="full-width-input">
+          <input matInput type="text" placeholder="Address" [(ngModel)]="doc.daddress" name="address">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="full-width-input">
+        <input matInput type="text" placeholder="Department" [(ngModel)]="doc.department" name="department" required>
+      </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field class="full-width-input">
+      <input matInput type="text" placeholder="Unit No." [(ngModel)]="doc.unit" name="unit" required>
+    </mat-form-field>
+</div>
+
+<div class="form-group">
+  <mat-form-field class="full-width-input">
+    <input matInput type="text" placeholder="Email Id" [(ngModel)]="doc.demail" name="email" required>
+  </mat-form-field>
+</div>
+
+<div class="form-group">
+  <mat-form-field class="full-width-input">
+    <input matInput type="password" placeholder="Password" [(ngModel)]="addUser.password" name="password" required>
+  </mat-form-field>
+</div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!authForm.valid">Add Doctor</button>
+        <span style="padding-left: 4px; padding-right: 4px;"></span>
+        <button mat-raised-button color="warn" (click)="onExit()" >Exit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>

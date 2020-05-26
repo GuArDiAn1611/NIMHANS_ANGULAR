@@ -15,6 +15,7 @@ import {parse, stringify} from 'flatted/esm';
   styleUrls: ['./home-doc.component.css']
 })
 export class HomeDocComponent implements OnInit {
+  value:any;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   dataset:any[];
   displayedColumns: string[] = ['ehrId', 'pname', 'age', 'gender','View'];

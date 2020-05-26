@@ -23,10 +23,10 @@ import {parse, stringify} from 'flatted/esm';
   styleUrls: ['./demo-details.component.css']
 })
 export class DemoDetailsComponent implements OnInit, OnDestroy {
+  value:any;
   @ViewChild('f', { static: false }) signupForm: NgForm;
   // @ViewChild('helmet', { static: false }) checkHelmet:MatSlideToggle;
   // @ViewChild('alcohol', { static: false }) checkAlcohol:MatSlideToggle;
-  value: any;
   genders=['male','female'];
   isView =false;
   postUrl:string;
@@ -157,6 +157,7 @@ export class DemoDetailsComponent implements OnInit, OnDestroy {
   }
   
   onEnter(id:HTMLInputElement){
+    console.log(id.value);
     this.req.getPatDetails(id.value).subscribe(resData => {
       this.user.demo.pname = resData.pname;
       this.user.demo.age = resData.age;

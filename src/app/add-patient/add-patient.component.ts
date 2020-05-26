@@ -19,6 +19,7 @@ export class AddPatientComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('step2',{static:false}) step2:MatStep;
   @ViewChild('step3',{static:false}) step3:MatStep;
   @ViewChild('step4',{static:false}) step4:MatStep;
+  value:any;
   str:string;
   isLinear = false;
   firstFormGroup: FormGroup;

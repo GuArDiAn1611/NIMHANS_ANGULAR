@@ -1,3 +1,9 @@
 export const environment = {
-  production: true
+  appName: 'logging-demo',
+  production: true,
+  env: 'prod',
+  endpoints: {
+    elasticSearchEndpoint: '',
+    nimhansEndpoint:'http://localhost:3336/'
+  }
 };

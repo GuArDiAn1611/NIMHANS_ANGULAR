@@ -10,6 +10,7 @@ import { HomeDocComponent } from './home-doc/home-doc.component';
 import { ViewComponent } from './view/view.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { AdminTableComponent } from './admin-table/admin-table.component';
+import { AddDocComponent } from './add-doc/add-doc.component';
 
 
 const appRoutes: Routes = [
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
   { path: 'clin', component: ClinicalImpressionComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'addPat', component: AddPatientComponent },
-  { path: 'adminTable', component: AdminTableComponent }
+  { path: 'adminTable', component: AdminTableComponent },
+  { path: 'addDoc', component: AddDocComponent}
 ];
 
 @NgModule({

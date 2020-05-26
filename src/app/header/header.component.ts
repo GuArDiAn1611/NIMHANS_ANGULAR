@@ -12,6 +12,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit, OnDestroy{
+  value:any;
   isView=false;
   isAuthenticated = false;
   name='';

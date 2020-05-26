@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +11,6 @@ import { ClinicalImpressionComponent, DialogOverviewClinDialog } from './clinica
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeDocComponent } from './home-doc/home-doc.component';
-import { HomeRecComponent } from './home-rec/home-rec.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
@@ -25,6 +24,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { CanvasComponent } from './canvas.component';
 import { MatDialogModule } from '@angular/material';
 import { AdminTableComponent } from './admin-table/admin-table.component';
+import { AddDocComponent } from './add-doc/add-doc.component';
+// import { GlobalErrorHandler } from './core/global-error-handler/global-error-handler.service';
+import { TellaComponent } from './tella/tella.component';
 
 @NgModule({
   entryComponents: [BottomSheetOverviewExampleSheet, ClinicalImpressionComponent, DialogOverviewClinDialog, NeurologicalExaminationComponent, DialogOverviewNeuroDialog,PhysicalExaminationComponent, DialogOverviewPhysDialog],
@@ -36,7 +38,6 @@ import { AdminTableComponent } from './admin-table/admin-table.component';
     NeurologicalExaminationComponent,
     ClinicalImpressionComponent,
     HomeDocComponent,
-    HomeRecComponent,
     AuthComponent,
     LoadingSpinnerComponent,
     ViewComponent,
@@ -46,7 +47,9 @@ import { AdminTableComponent } from './admin-table/admin-table.component';
     DialogOverviewClinDialog,
     DialogOverviewNeuroDialog,
     DialogOverviewPhysDialog,
-    AdminTableComponent
+    AdminTableComponent,
+    AddDocComponent,
+    TellaComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,12 @@ import { AdminTableComponent } from './admin-table/admin-table.component';
       useClass: AuthInterceptorService,
       multi: true
     }
+    // {
+    //   provide: ErrorHandler,
+    //   useClass: GlobalErrorHandler
+    // }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

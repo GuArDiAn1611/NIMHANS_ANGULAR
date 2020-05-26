@@ -45,6 +45,23 @@ export class DataService {
       }
     }
   }
+
+  doc = {
+    emp_id:null,
+    dname:"",
+    dcontact:"",
+    demail:"",
+    daddress:"",
+    department:"",
+    unit:null
+  }
+
+  addUser = {
+    username:"",
+    password:"",
+    role:"ROLE_DOCTOR"
+  }
+  adminMode="";
   isMode=new BehaviorSubject<mode>({editMode:false,viewMode:false});
   encounterBody:any;
   encounterArray=[];

@@ -22,8 +22,7 @@ export class PhysicalExaminationComponent implements OnInit, OnDestroy {
 
   animal: string;
   name: string; 
-  value: any;
-
+  value:any;
   @ViewChild('f', { static: false }) phy_det: NgForm;
   @ViewChild('loc', { static: false }) loc:MatSlideToggle;
   @ViewChild('vom', { static: false }) vom:MatSlideToggle;

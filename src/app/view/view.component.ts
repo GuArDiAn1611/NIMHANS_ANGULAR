@@ -12,6 +12,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 })
 export class ViewComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  value:any;
   dataset:any[];
   displayedColumns: string[] = ['ehrId', 'pname', 'age', 'gender','View'];
   dataSet: MatTableDataSource<any[]>;

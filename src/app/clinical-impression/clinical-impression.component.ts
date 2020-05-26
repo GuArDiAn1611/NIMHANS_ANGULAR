@@ -24,9 +24,9 @@ export interface DialogData {
 })
 export class ClinicalImpressionComponent implements OnInit,OnDestroy {
 
+  value:any;
   animal: string;
   name: string;
-  value: any;
 
   @ViewChild('fl', { static: false }) cli_det: NgForm;
   // @ViewChild('headS', { static: false }) headS: ElementRef;

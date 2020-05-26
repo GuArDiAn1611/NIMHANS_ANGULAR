@@ -14,6 +14,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
+  value:any;
   isLoginMode = true;
   isLoading = false;
   error: string = null;
@@ -66,11 +67,23 @@ export class AuthComponent implements OnInit {
       resData => {
         console.log(resData);
         this.isLoading = false;
-        this.req.addDummy().subscribe();
-        this.router.navigate(['/home']);
+        this.req.checkUser().subscribe(
+          user =>{
+            if(user=='ROLE_ADMIN'){
+              this.req.sendLog({ROLE:user,STATUS:"Login",Verified:"True"});
+              this.req.addDummy().subscribe();
+              this.router.navigate(['/adminTable']);
+            }
+            else if(user=='ROLE_DOCTOR'){
+              this.req.sendLog({ROLE:user,STATUS:"Login",Verified:"True"});
+              this.router.navigate(['/home']);
+            }
+          }
+        )
         //this.dataServ.OnFetch();
       },
       errorMessage => {
+        this.req.sendLog("Authorization Error : Access Denied");
         console.log(errorMessage);
         this.error = errorMessage;
         this.isLoading = false;
