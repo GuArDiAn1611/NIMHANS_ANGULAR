@@ -34,6 +34,7 @@ pipeline {
     	}
 	stage('Trigger Rundeck'){
     		steps {
+			logstashSend failBuild: true, maxLines: 1000
     			build 	'rundeck-test'
     		}
     	}
