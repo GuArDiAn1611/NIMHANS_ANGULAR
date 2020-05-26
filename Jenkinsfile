@@ -11,6 +11,12 @@ pipeline {
                 sh "npm install"
             }
         }
+	stage('Testing Phase') { 
+            steps {
+                sh "
+		echo 'hello world'	"
+            }
+        }
         stage('Building Angular Application') { 
             steps {
                 sh "ng build --prod --aot"
@@ -35,13 +41,13 @@ pipeline {
     	}
 	stage('Trigger Rundeck'){
     		steps {
-			logstashSend failBuild: true, maxLines: 1000
     			build 	'rundeck-test'
     		}
     	}
 	stage('Monitoring Phase'){
     		steps {
     			build 	'logging'
+			logstashSend failBuild: true, maxLines: 1000
     		}
     	}
     }
