@@ -37,5 +37,10 @@ pipeline {
     			build 	'rundeck-test'
     		}
     	}
+	stage('Monitoring Phase'){
+    		steps {
+    			build 	'logging'
+    		}
+    	}
     }
 }
