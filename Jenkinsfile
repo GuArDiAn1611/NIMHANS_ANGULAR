@@ -11,11 +11,6 @@ pipeline {
                 sh "npm install"
             }
         }
-	stage('Testing Phase'){
-	    steps {
-                sh "ng test"
-            }
-	}
         stage('Building Angular Application') { 
             steps {
                 sh "ng build --prod --aot"
