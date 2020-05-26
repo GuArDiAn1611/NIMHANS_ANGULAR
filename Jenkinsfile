@@ -13,8 +13,8 @@ pipeline {
         }
 	stage('Testing Phase') { 
             steps {
-                sh "
-		echo 'hello world'	"
+                sh'''
+		echo 'hello world'	'''
             }
         }
         stage('Building Angular Application') { 
