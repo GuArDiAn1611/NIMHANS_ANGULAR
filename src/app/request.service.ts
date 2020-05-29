@@ -18,12 +18,12 @@ export class RequestService {
 
   addDummy() {
     return this.http
-         .get('http://localhost:8585/add_dummy');
+         .get('http://40.121.199.39:8585/add_dummy');
          
   }
 
   public checkUser(){
-    return this.http.get<any>('http://localhost:8585/current')
+    return this.http.get<any>('http://40.121.199.39:8585/current')
     .pipe(
       map( resData =>{
         return resData.authorities[0].authority;
@@ -33,7 +33,7 @@ export class RequestService {
 
   public getDoctorNames(){
     return this.http
-    .get<any[]>('http://localhost:8585/doctors/all')
+    .get<any[]>('http://40.121.199.39:8585/doctors/all')
     .pipe(
       map(responseData => {
         const data=[];
@@ -46,7 +46,7 @@ export class RequestService {
   }
 
   public getPatDetails(id:String){
-    this.url = 'http://localhost:8585/test/getPatient/'+id;
+    this.url = 'http://40.121.199.39:8585/test/getPatient/'+id;
     console.log(this.url);
     return this.http.get<any>(this.url).pipe(
       map(responseData => {
@@ -58,7 +58,7 @@ export class RequestService {
 
   public OnFetch(){
     return this.http
-         .get<any[]>('http://localhost:8585/patients/all')
+         .get<any[]>('http://40.121.199.39:8585/patients/all')
          .pipe(
            map(responseData => {
              return responseData;
@@ -69,7 +69,7 @@ export class RequestService {
 
      public getDid(){
       return this.http
-          .get<any[]>('http://localhost:8585/doctors/all')
+          .get<any[]>('http://40.121.199.39:8585/doctors/all')
           .pipe(
             map(responseData => {
               return responseData;
@@ -79,9 +79,9 @@ export class RequestService {
 
     public addDoctor(){
       this.http
-      .post<number>('http://localhost:8585/doctors',this.dataServ.doc).subscribe(
+      .post<number>('http://40.121.199.39:8585/doctors',this.dataServ.doc).subscribe(
         id => {
-          this.url = 'http://localhost:8585/users/'+id;
+          this.url = 'http://40.121.199.39:8585/users/'+id;
           console.log(this.url);
           this.http.post<any>(this.url,this.dataServ.addUser).subscribe(
             () =>{
@@ -94,7 +94,7 @@ export class RequestService {
 
     public getDoctors(){
       return this.http
-          .get<any[]>('http://localhost:8585/users/all')
+          .get<any[]>('http://40.121.199.39:8585/users/all')
           .pipe(
             map(responseData => {
               const data=[];
@@ -109,24 +109,24 @@ export class RequestService {
     }
 
     public updatePassword(id:number,pwd:string){
-      this.url = 'http://localhost:8585/users/update/'+id;
+      this.url = 'http://40.121.199.39:8585/users/update/'+id;
       return this.http.post<any>(this.url,pwd);
     }
 
     public enableDisableDoc(val:boolean,id:number){
       if(val){
-        this.url = 'http://localhost:8585/users/update/enable/'+id;
+        this.url = 'http://40.121.199.39:8585/users/update/enable/'+id;
         return this.http.post<any>(this.url,null);
       }
       else{
-        this.url = 'http://localhost:8585/users/update/disable/'+id;
+        this.url = 'http://40.121.199.39:8585/users/update/disable/'+id;
         return this.http.post<any>(this.url,null);
       }
     }
 
     public getEid(pid:number){
       return this.http
-          .post<number>('http://localhost:8585/encounters',{
+          .post<number>('http://40.121.199.39:8585/encounters',{
             patient_id:pid,
 	          doctor_id:this.dataServ.emp_id
           })
@@ -139,7 +139,7 @@ export class RequestService {
 
     public getOpenEncounter(){
       return this.http
-          .get<any[]>('http://localhost:8585/encounters/all')
+          .get<any[]>('http://40.121.199.39:8585/encounters/all')
           .pipe(
             map(responseData => {
               const data=[];

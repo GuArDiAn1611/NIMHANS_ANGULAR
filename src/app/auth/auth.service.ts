@@ -43,7 +43,7 @@ export class AuthService {
   login(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'http://localhost:8585/authenticate',
+        'http://40.121.199.39:8585/authenticate',
         {
           username: email,
           password: password
